@@ -19,7 +19,13 @@
         <ul class="list-items">
           {{#each items}}
 
-            <li class="item">{{this}}</li>
+            <li class="item">
+              {{> itemMenu}}
+              {{this}}
+
+            </li>
+
+
 
           {{/each}}
         </ul>
