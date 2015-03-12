@@ -1,0 +1,40 @@
+<template name="lists">
+{{#if currentUser}}
+
+  {{> viewHeader viewTitle="My Lists"}}
+
+  <ul class="lists-wrap">
+    {{#each lists}}
+
+      <li class="list">
+
+        <div class="list-header">
+          <h4 class="list-title">{{title}}</h4>
+
+
+          {{> listMenu}}
+
+        </div>
+
+        <ul class="list-items">
+          {{#each items}}
+
+            <li class="item">{{this}}</li>
+
+          {{/each}}
+        </ul>
+
+        {{> addItemForm}}
+
+      </li>
+
+    {{/each}}
+
+    <li class="list add-list-wrap">{{> addListForm}}</li>
+
+  </ul>
+{{else}}
+  {{> notSignedIn}}
+{{/if}}
+
+</template>

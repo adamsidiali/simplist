@@ -1,0 +1,20 @@
+{
+  "items": [
+    {
+      "listId": "1",
+      "item": "item 1"
+    },
+    {
+      "listId": "1",
+      "item": "item 2"
+    },
+    {
+      "listId": "2",
+      "item": "item 3"
+    },
+    {
+      "listId": "2",
+      "item": "item 3"
+    }
+  ]
+}

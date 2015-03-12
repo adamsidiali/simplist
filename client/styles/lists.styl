@@ -1,0 +1,38 @@
+.lists-wrap
+  flex 1
+  margin 0
+  display flex
+  flex-wrap nowrap
+  padding 0px
+  list-style none
+  background-color #efefef
+  align-self stretch
+  overflow-x scroll
+  -webkit-overflow-scrolling touch
+
+  .list
+    box-sizing border-box
+
+    padding 10px 20px
+    border-right 1px solid #ddd
+    min-width 23%
+
+    .list-header
+      position relative
+      display flex
+      padding 10px 2px
+      justify-content space-between
+
+    .list-items
+      list-style none
+
+      .item
+        background-color #fff
+        padding 10px
+        margin-bottom 10px
+        box-shadow 0 1px 2px rgba(0,0,0,0.2)
+        font-weight 300
+
+  .add-list-wrap
+    border none
+    padding-top 20px

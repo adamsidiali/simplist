@@ -1,0 +1,12 @@
+{
+  "lists": [
+    {
+      "owner": "adam",
+      "title": "List 1",
+    },
+    {
+      "owner": "adam",
+      "title": "List 2",
+    }
+  ]
+}
