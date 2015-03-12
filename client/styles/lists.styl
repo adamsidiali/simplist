@@ -15,7 +15,16 @@
 
     padding 10px 20px
     border-right 1px solid #ddd
+    max-width 23%
     min-width 23%
+
+    @media (max-width: 900px)
+      max-width 46%
+      min-width 46%
+
+    @media (max-width: 600px)
+      max-width 93%
+      min-width 93%
 
     .list-header
       position relative

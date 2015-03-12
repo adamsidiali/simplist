@@ -4,6 +4,36 @@
   flex 0 0 auto
   margin 0
 
+  display flex
+  align-items stretch
+
+  .toggle-menu
+    flex 0 0 1
+    margin auto
+    padding 0
+
+    .fa
+      color #fff
+
+    span
+      color #ddd
+      font-size 80%
+      opacity 0
+      text-transform uppercase
+      transition 0.2s ease-in
+
+    &:hover
+      cursor pointer
+
+    &:hover span
+      opacity 1
+      transition 0.2s ease-in
+
   .view-title
+    flex 1
+    display inline-block
+    text-align center
+    margin auto 10px
+    padding 0
     color #fff
     font-weight 100
