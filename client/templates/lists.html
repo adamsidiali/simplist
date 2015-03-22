@@ -3,10 +3,10 @@
 
   {{> viewHeader viewTitle="My Lists"}}
 
-  <ul class="lists-wrap">
+  <div id="lists" class="lists-wrap">
     {{#each lists}}
 
-      <li class="list">
+      <div class="list">
 
         <div class="list-header">
           <h4 class="list-title">{{title}}</h4>
@@ -16,29 +16,31 @@
 
         </div>
 
-        <ul class="list-items">
-          {{#each items}}
+        <div class="list-items-wrap">
+          <div class="list-items">
+            {{#each items}}
 
-            <li class="item">
-              {{> itemMenu}}
-              {{this}}
+              <div class="item">
+                {{> itemMenu}}
+                {{this}}
 
-            </li>
+              </div>
 
 
 
-          {{/each}}
-        </ul>
+            {{/each}}
+          </div>
+        </div>
 
         {{> addItemForm}}
 
-      </li>
+      </div>
 
     {{/each}}
 
     <li class="list add-list-wrap">{{> addListForm}}</li>
 
-  </ul>
+  </div>
 {{else}}
   {{> notSignedIn}}
 {{/if}}

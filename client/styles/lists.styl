@@ -7,16 +7,17 @@
   list-style none
   background-color #efefef
   align-self stretch
+  overflow hidden
   overflow-x scroll
-  -webkit-overflow-scrolling touch
 
   .list
     box-sizing border-box
-
-    padding 10px 20px
+    padding 10px 0px
     border-right 1px solid #ddd
     max-width 23%
     min-width 23%
+    display flex
+    flex-direction column
 
     @media (max-width: 900px)
       max-width 46%
@@ -27,21 +28,27 @@
       min-width 93%
 
     .list-header
-      position relative
+      height auto
       display flex
-      padding 10px 2px
+      padding 10px 20px
       justify-content space-between
 
-    .list-items
-      list-style none
+    .list-items-wrap
+      overflow scroll
+      padding 0 20px;
 
-      .item
-        background-color #fff
-        padding 10px
-        margin-bottom 10px
-        box-shadow 0 1px 2px rgba(0,0,0,0.2)
-        font-weight 300
+
+      .list-items
+        list-style none
+        overflow visible
+
+        .item
+          background-color #fff
+          padding 10px
+          margin-bottom 10px
+          box-shadow 0 1px 2px rgba(0,0,0,0.2)
+          font-weight 300
 
   .add-list-wrap
     border none
-    padding-top 20px
+    padding 20px
