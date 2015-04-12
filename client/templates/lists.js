@@ -27,6 +27,16 @@ Template.lists.events({
   "click .trash-list": function () {
     Lists.remove(this._id);
 
+  },
+
+  "click .trash-item": function (e,t) {
+
+    Lists.update({"_id": this.list_id },
+     {
+        "$pull": {
+            "items": this
+         }
+     });
   }
 
 });

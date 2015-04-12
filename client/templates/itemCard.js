@@ -4,8 +4,6 @@ Template.itemCard.events({
 
     console.log(this);
 
-
-
   }
 
 });

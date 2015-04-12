@@ -25,7 +25,12 @@
           <div class="list-items">
             {{#each items}}
 
-                {{> itemCard item=item}}
+              <div class="item">
+
+                <i class="fa fa-trash trash-item"></i>
+                {{item}} <small>({{createdAt}})</small>
+
+              </div>
 
             {{/each}}
           </div>
