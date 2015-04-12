@@ -1,15 +1,26 @@
-Template.lists.events({
+Template.addListForm.events({
 
   "submit .add-list": function (event) {
 
-    var listTitle = event.target.listTitle.value;
+    var title = event.target.listTitle.value;
+    var list_id; // to attach to the item obj created on Lists.insert success
 
     Lists.insert({
       "owner": Meteor.user().username,
-      "title": listTitle,
-      "items": [],
-      "tags": [],
-      "sharedWith": []
+      "title": title,
+      "createdAt": new Date()
+    }, function(err, id) {
+
+      list_id = id; // assign the returned _id of the newly created list obj
+
+      Items.insert({
+        "list_id": list_id,
+        "owner":  Meteor.user().username,
+        "item": "item 1",
+      }, function(err, id) {
+        console.log(id);
+      });
+
     });
 
     event.target.listTitle.value = "";

@@ -11,9 +11,8 @@ Meteor.methods({
     });
   },
 
-  removeItem: function (list, item) {
-    console.log("removing...");
-    Lists.update({ "_id" : list }, { "$pull" : { "items": item }});
+  removeItems: function (listId) {
+    Items.remove({ "list_id" : listId});
   }
 
 });

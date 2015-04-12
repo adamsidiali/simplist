@@ -37,15 +37,22 @@
       height auto
       display flex
       flex-wrap wrap
-      padding 10px 20px
+      padding 0 10px
+      padding-top 10px
       justify-content space-between
 
-      .toggle-list-menu
-        color color3
-        line-height 24px
+      .bar
+        width 100%
+        display flex
+        justify-content space-between
 
-        &:hover
-          cursor pointer
+        .toggle-list-menu
+          color color3
+          line-height 24px
+          flex 0 0 1
+
+          &:hover
+            cursor pointer
 
       .list-menu
         z-index 999
@@ -53,28 +60,39 @@
         padding 0
         margin 0
         margin-top 10px
+        padding-bottom 5px
+        background-color #efefef
         width 100%
         display none
 
         li
-          background-color color1
-          padding 10px 20px
+          background-color color3
+          padding 10px
           color #fff
           margin-bottom 5px
           transition 100ms ease-in
 
           &:hover
             background-color color5
-            padding-left 30px
             cursor pointer
+            transition 100ms ease-in
+
+          &:hover .fa
+            padding-right 15px
+            transition 100ms ease-in
+
+          .fa
+            padding-right 5px
             transition 100ms ease-in
 
 
 
     .list-items-wrap
       overflow scroll
-      padding 0 20px;
-
+      padding 0 10px
+      margin-top 20px
+      opacity 1
+      transition 200ms ease-in
 
       .list-items
         list-style none
@@ -82,32 +100,72 @@
 
         .item
           background-color #fff
-          padding 10px
+          padding 0px
           margin-top 5px
           margin-bottom 5px
-          box-shadow 0 1px 2px rgba(0,0,0,0.2)
           font-weight 300
           transition 200ms ease-in
+          display flex
+
+          p
+            flex 1
+            padding 10px
+            font-size 1em
+            font-weight 300
+            animation itemSuccess 750ms both
+
+          form
+            display none
+            flex 1
+
+            input
+              flex 1
+              padding 10px
+              padding-left 5px
+              margin-left 5px
+              border none
+              font-size 1em
+              font-weight 300
+              width 100%
+
+              &:focus
+                box-shadow none
+                border none
+                -webkit-appearance none
+                outline none
+                background-color transparent
+                padding-bottom 3px
+                margin-bottom -3px
+                border-bottom 1px solid color3
 
           &:hover
             margin-top 15px
             margin-bottom 15px
             transition 200ms ease-in
 
+          &:first-of-type
+            margin-top 0
+
           &:first-of-type:hover
-            margin-top 5px
+            margin-top 0
+
+          &:last-of-type
+            margin-bottom 0
 
           &:last-of-type:hover
-            margin-bottom 5px
+            margin-bottom 0
 
           .trash-item
-            float right
+            flex 0 0 auto
             background-color transparent
-            padding 2px
+            padding 12px
             opacity 0.2
             font-size 14px
 
-
+    .list-items-wrap.disabled
+      opacity 0.4
+      transition 200ms ease-in
+      overflow hidden
 
   .add-list-wrap
     border none

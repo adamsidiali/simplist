@@ -2,18 +2,15 @@ Template.addItemForm.events({
 
   "submit .add-item": function (event) {
 
-    var currentTime = new Date();
     var item = event.target.item.value;
+    var list_id = this._id;
 
-    Lists.update({_id: this._id}, {
-      $push: {
-        items: {
-          "item": item,
-          "owner": Meteor.user().username,
-          "list_id": this._id,
-          "createdAt": currentTime
-          }
-        }
+    Items.insert({
+      "list_id": list_id,
+      "owner":  Meteor.user().username,
+      "item": item
+    }, function(err, id) {
+      console.log(id);
     });
 
     event.target.item.value = "";
