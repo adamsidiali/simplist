@@ -1,7 +1,7 @@
 <template name="lists">
 {{#if currentUser}}
 
-  {{> viewHeader viewTitle="My Lists"}}
+  {{> viewHeader viewTitle="All Lists"}}
 
   <div id="lists" class="lists-wrap">
     {{#each lists}}
@@ -49,8 +49,6 @@
       </div>
 
     {{/each}}
-
-    <li class="list add-list-wrap">{{> addListForm}}</li>
 
   </div>
 {{else}}

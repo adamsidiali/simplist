@@ -13,9 +13,8 @@ var toggleItemNav = function (e) {
   var header = toggle.parent().parent();
   var list = header.parent();
 
-  list.children(".list-items-wrap").toggleClass("disabled");
 
-  header.children(".list-menu").slideToggle(200);
+  header.children(".list-menu").slideToggle(100);
   toggle.toggleClass("fa-bars");
   toggle.toggleClass("fa-times");
 };
