@@ -9,10 +9,15 @@
       <div class="list">
 
         <div class="list-header">
+
           <h4 class="list-title">{{title}}</h4>
 
+          <i class="fa fa-bars toggle-list-menu"></i>
 
-          {{> listMenu}}
+          <ul class="list-menu">
+            <li class="rename-list"><i class="fa fa-pencil fa-fw"></i> Rename list</li>
+            <li class="trash-list"><i class="fa fa-trash fa-fw"></i> Delete list</li>
+          </ul>
 
         </div>
 
@@ -20,13 +25,7 @@
           <div class="list-items">
             {{#each items}}
 
-              <div class="item">
-                {{> itemMenu}}
-                {{this}}
-
-              </div>
-
-
+                {{> itemCard item=item}}
 
             {{/each}}
           </div>

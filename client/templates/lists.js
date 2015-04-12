@@ -5,21 +5,37 @@ Template.lists.helpers({
 
 });
 
+var toggleItemNav = function (e) {
+  toggle = $(e.target);
+  header = toggle.parent();
+
+  header.children(".list-menu").slideToggle(200);
+  toggle.toggleClass("fa-bars");
+  toggle.toggleClass("fa-times");
+}
 
 Template.lists.events({
 
-  "click .item": function (event, template) {
-    var item = this;
-    var list = template.parentData(1);
-    console.log(item + "  "+ list);
+  "click .toggle-list-menu": function (event, template) {
+    toggleItemNav(event);
+  },
 
+  "click .rename-list": function (e,t) {
+
+  },
+
+  "click .trash-list": function () {
+    Lists.remove(this._id);
 
   }
 
 });
 
 Template.lists.gestures({
-  "swiperight .list": function (event, template) {
-    msg("hello!");
+
+  "swiperight .item": function (e, t) {
+    var list = this;
+    console.log();
   }
+
 });

@@ -12,12 +12,17 @@
 
   .list
     box-sizing border-box
-    padding 10px 0px
+    padding 10px 0
     border-right 1px solid #ddd
     max-width 23%
     min-width 23%
     display flex
     flex-direction column
+    user-select none
+
+    @media (max-width: 1200px)
+      max-width 31.33%
+      min-width 31.33%
 
     @media (max-width: 900px)
       max-width 46%
@@ -28,10 +33,43 @@
       min-width 93%
 
     .list-header
+      position relative
       height auto
       display flex
+      flex-wrap wrap
       padding 10px 20px
       justify-content space-between
+
+      .toggle-list-menu
+        color color3
+        line-height 24px
+
+        &:hover
+          cursor pointer
+
+      .list-menu
+        z-index 999
+        list-style none
+        padding 0
+        margin 0
+        margin-top 10px
+        width 100%
+        display none
+
+        li
+          background-color color1
+          padding 10px 20px
+          color #fff
+          margin-bottom 5px
+          transition 100ms ease-in
+
+          &:hover
+            background-color color5
+            padding-left 30px
+            cursor pointer
+            transition 100ms ease-in
+
+
 
     .list-items-wrap
       overflow scroll
@@ -45,9 +83,23 @@
         .item
           background-color #fff
           padding 10px
-          margin-bottom 10px
+          margin-top 5px
+          margin-bottom 5px
           box-shadow 0 1px 2px rgba(0,0,0,0.2)
           font-weight 300
+          transition 200ms ease-in
+
+          &:hover
+            margin-top 15px
+            margin-bottom 15px
+            transition 200ms ease-in
+
+          &:first-of-type:hover
+            margin-top 5px
+
+          &:last-of-type:hover
+            margin-bottom 5px
+
 
   .add-list-wrap
     border none

@@ -12,6 +12,6 @@ iron:router
 accounts-ui
 accounts-password
 fortawesome:fontawesome
-accounts-google
 service-configuration
 hammer:hammer
+chriswessels:hammer

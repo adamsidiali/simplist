@@ -7,7 +7,9 @@ Template.lists.events({
     Lists.insert({
       "owner": Meteor.user().username,
       "title": listTitle,
-      "items": []
+      "items": [],
+      "tags": [],
+      "sharedWith": []
     });
 
     event.target.listTitle.value = "";
