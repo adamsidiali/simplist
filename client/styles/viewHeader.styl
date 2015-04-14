@@ -3,16 +3,18 @@
   background-color color2
   flex 0 0 auto
   margin 0
-
+  position relative
   display flex
   align-items stretch
+  justify-content flex-start
 
   .spacer
     flex 1
 
   .toggle-menu
-    flex 0 0 1
+    flex 0 0 auto
     margin auto
+    margin-right 20px
     padding 0
 
     .fa
@@ -22,21 +24,24 @@
       cursor pointer
 
   .view-title
-    flex 0 0 auto
-    display inline-block
-    text-align left
-    margin auto 20px
+    position absolute
+    top 50%
+    left 50%
+    transform translate(-50%,-50%)
+    text-align center
+    margin 0
     padding 0
     color #fff
     font-weight 100
 
   .add-list
+    flex 0 0 auto
     padding 0
-    margin auto
+    margin 0
     position relative
 
     input
-      margin auto
+      margin 0
       background-color rgba(0,0,0,0.2)
       padding 7px 15px
       color #fff

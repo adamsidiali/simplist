@@ -5,7 +5,9 @@
   flex-wrap nowrap
   padding 0
   list-style none
-  background-color #efefef
+  background-color color2
+  // background url('/assets/family-beach-alt.jpg') no-repeat center center scroll
+  // background-size cover
   align-self stretch
   overflow hidden
   overflow-x scroll
@@ -13,7 +15,7 @@
   .list
     flex 1
     box-sizing border-box
-    padding 10px 0
+    padding 10px
     margin 0
     border-right 1px solid #ddd
     max-width 23vw
@@ -21,14 +23,20 @@
     display flex
     flex-direction column
     user-select none
+    background-color #efefef
 
     &:first-of-type
       margin-left 38.5vw
+      box-shadow -11.5vw 11.5vw 8.5vw rgba(0,0,0,0.15)
+
+    &:last-of-type
+      box-shadow 11.5vw 11.5vw 8.5vw rgba(0,0,0,0.15)
 
     &:last-of-type:after
       content " "
       width 61.5vw
       height 1px
+
 
 
     @media (max-width: 1200px)
