@@ -3,7 +3,7 @@
   margin 0
   display flex
   flex-wrap nowrap
-  padding 0px
+  padding 0
   list-style none
   background-color #efefef
   align-self stretch
@@ -11,26 +11,61 @@
   overflow-x scroll
 
   .list
+    flex 1
     box-sizing border-box
     padding 10px 0
+    margin 0
     border-right 1px solid #ddd
-    max-width 23%
-    min-width 23%
+    max-width 23vw
+    min-width 23vw
     display flex
     flex-direction column
     user-select none
 
+    &:first-of-type
+      margin-left 38.5vw
+
+    &:last-of-type:after
+      content " "
+      width 61.5vw
+      height 1px
+
+
     @media (max-width: 1200px)
-      max-width 31.33%
-      min-width 31.33%
+      max-width 31.33vw
+      min-width 31.33vw
+
+      &:first-of-type
+        margin-left 34.35vw
+
+      &:last-of-type:after
+        content " "
+        width 65.65vw
+        height 1px
 
     @media (max-width: 900px)
-      max-width 46%
-      min-width 46%
+      max-width 46vw
+      min-width 46vw
+
+      &:first-of-type
+        margin-left 27vw
+
+      &:last-of-type:after
+        content " "
+        width 73vw
+        height 1px
 
     @media (max-width: 600px)
-      max-width 93%
-      min-width 93%
+      max-width 93vw
+      min-width 93vw
+
+      &:first-of-type
+        margin-left 3.5vw
+
+      &:last-of-type:after
+        content " "
+        width 96.5vw
+        height 1px
 
     .list-header
       position relative
@@ -157,8 +192,18 @@
             flex 0 0 auto
             background-color transparent
             padding 12px
-            opacity 0.2
+            color #aaa
             font-size 14px
+            opacity 0
+            transition 200ms ease-in
+
+            &:hover
+              cursor pointer
+              color red
+
+          &:hover .trash-item
+            opacity 1
+            transition 200ms ease-in
 
   .add-list-wrap
     border none
