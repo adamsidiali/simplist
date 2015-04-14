@@ -2,7 +2,7 @@ Template.viewHeader.events({
 
   "submit .add-list": function (event) {
 
-    var title = event.target.title.value;
+    /* var title = event.target.title.value;
     var list_id; // to attach to the item obj created on Lists.insert success
 
     Lists.insert({
@@ -23,7 +23,11 @@ Template.viewHeader.events({
 
     });
 
-    event.target.title.value = "";
+    event.target.title.value = ""; */
+
+    Dialogs.prompt("Type a new list name", function (res) {
+      console.log(res);
+    }, "new-list", "Add List", "My New List")
 
     return false;
 
