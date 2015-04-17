@@ -1,5 +1,6 @@
 .view-header
-  padding 10px 20px
+  padding 0px 20px
+  min-height 50px
   background-color color2
   flex 0 0 auto
   margin 0
@@ -15,13 +16,21 @@
     flex 0 0 auto
     margin auto
     margin-right 20px
-    padding 0
+    padding 10px 0
+    display none
 
     .fa
       color #fff
 
-    &:hover
-      cursor pointer
+    ul
+      list-style none
+
+      li
+        display inline
+        margin-right 20px
+
+    @media (max-width: 600px)
+      display block
 
   .view-title
     position absolute
@@ -33,31 +42,3 @@
     padding 0
     color #fff
     font-weight 100
-
-  .add-list
-    flex 0 0 auto
-    padding 0
-    margin 0
-    position relative
-
-    input
-      margin 0
-      background-color rgba(0,0,0,0.2)
-      padding 7px 15px
-      color #fff
-      min-width 33vw
-      max-width 100%
-      font-size 1em
-      border-radius 30px
-      border none
-      outline none
-
-    button.submitList
-      background-color transparent
-      color #ddd
-      border none
-      position absolute
-      right 10px
-      top 50%
-      transform translate(-50%,-50%)
-      outline none

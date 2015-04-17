@@ -15,6 +15,9 @@ Template.addItemForm.events({
 
     event.target.item.value = "";
 
+    var wrap = $(event.target).parents(".list").children(".list-items-wrap");
+    wrap.scrollTop(wrap.prop("scrollHeight"));
+
     return false;
 
   }

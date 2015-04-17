@@ -1,9 +1,9 @@
 <template name="lists">
 {{#if currentUser}}
 
-  {{> viewHeader viewTitle="All Lists"}}
+  {{> viewHeader viewTitle=viewTitle}}
 
-  {{> viewNav }}
+  {{> viewNav active=viewId }}
 
   <div id="lists" class="lists-wrap">
     {{#each lists}}
@@ -14,7 +14,7 @@
 
           <div class="bar">
             <h4 class="list-title">{{title}}</h4>
-            <i class="fa fa-bars toggle-list-menu"></i>
+            <i class="fa fa-caret-down toggle-list-menu"></i>
           </div>
 
           <ul class="list-menu">
@@ -35,8 +35,10 @@
                 </p>
 
                 <form class="edit-item" role="form">
-                  <input autofocus type="text" name="item" value="{{item}}" />
+                  <input autofocus type="text" name="item" value="{{item}}" autocomplete="off" />
                 </form>
+
+
 
                 <i class="fa fa-trash trash-item"></i>
 

@@ -1,6 +1,20 @@
+Template.lists.rendered = function () {
+
+  $(".lists-wrap").scroll(function(e){
+
+    e.preventDefault();
+
+  });
+
+};
+
+
 Template.lists.helpers({
+
+  viewTitle: "All Lists",
+
   lists: function() {
-    return Lists.find({owner:Meteor.user().username});
+    return Lists.find({owner:Meteor.user().username}, {sort: {createdAt: -1}});
   },
   items: function(listId) {
     return Items.find({"owner":Meteor.user().username, "list_id": listId});
@@ -8,24 +22,60 @@ Template.lists.helpers({
 
 });
 
-var toggleItemNav = function (e) {
-  var toggle = $(e.target);
-  var header = toggle.parent().parent();
+var toggleListNav = function (e) {
+  // var toggle = $(e.target);
+  var header = $(e.target);
   var list = header.parent();
 
-
   header.children(".list-menu").slideToggle(100);
-  toggle.toggleClass("fa-bars");
-  toggle.toggleClass("fa-times");
+
+  list.children(".list-items-wrap").toggleClass("hidden");
+
 };
 
 Template.lists.events({
 
-  "click .toggle-list-menu": function (event, template) {
-    toggleItemNav(event);
+  "click .list-header": function (event, template) {
+    toggleListNav(event);
   },
 
   "click .rename-list": function (e,t) {
+
+    $(e.target).parent().slideUp(100);
+    $(e.target).parents(".list").children(".list-items-wrap").removeClass("hidden");
+
+    var list_id = this._id;
+    var title = this.title;
+
+    swal({
+      title: "Rename " + title,
+      type: "input",
+      text: "",
+      showCancelButton: true,
+      closeOnConfirm: false,
+      confirmButtonColor: "#32DE8A"
+    }, function (res) {
+
+      if (res === false) {
+        return false;
+      } else if (res === "") {
+        swal.showInputError("Your list name can't be blank!");
+        return false;
+      } else {
+        Lists.update(list_id, { $set: {"title": res }});
+        console.log("title update to " + res);
+
+        swal({
+          title: "List renamed to " + res + "!",
+          text: "",
+          type: "success",
+          timer: 1000,
+          showConfirmButton: false
+        });
+
+      }
+    });
+
 
   },
 
@@ -53,9 +103,49 @@ Template.lists.events({
     return false;
   },
 
-  "click .trash-list": function () {
-    Lists.remove(this._id);
-    Meteor.call("removeItems", this._id);
+  "click .trash-list": function (e,t) {
+
+    $(e.target).parent().slideUp(100);
+    $(e.target).parents(".list").children(".list-items-wrap").removeClass("hidden");
+
+
+    var id = this._id;
+
+    swal({
+      title: "Are you sure?",
+      text: "You will not be able to recover this list!",
+      type: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#DD6B55",
+      confirmButtonText: "Yes, delete it",
+      closeOnConfirm: false
+    }, function () {
+      Lists.remove(id);
+      Meteor.call("removeItems", id);
+      console.log("deleted");
+
+      swal({
+        title: "List deleted!",
+        text: "",
+        type: "success",
+        timer: 1000,
+        showConfirmButton: false
+      });
+
+    });
+
+  /*  Dialogs.confirm("Really delete list?", function (res) {
+      if (res === 1) {
+        Lists.remove(id);
+        Meteor.call("removeItems", id);
+        console.log("deleted");
+      } else {
+        console.log("not deleted");
+      }
+    }, "Delete List", ["Delete List", "Nevermind"]);*/
+
+    $(e.target).parent().slideUp(100);
+
   },
 
   "click .trash-item": function (e,t) {
@@ -66,9 +156,18 @@ Template.lists.events({
 
 Template.lists.gestures({
 
-  "swiperight .item": function (e, t) {
-    var list = this;
-    console.log();
+  "swipeleft .lists-wrap": function (e,t) {
+    var left = $(".lists-wrap").scrollLeft();
+    var more = $(window).width()*0.935;
+
+    $(".lists-wrap").animate({ "scrollLeft": left+more }, 200);
+  },
+
+  "swiperight .lists-wrap": function (e,t) {
+    var left = $(".lists-wrap").scrollLeft();
+    var more = $(window).width()*0.935;
+
+    $(".lists-wrap").animate({ "scrollLeft": left-more }, 200);
   }
 
 });

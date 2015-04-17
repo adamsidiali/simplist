@@ -1,11 +1,19 @@
 .view-nav
   position absolute
-  top 91px
+  top 98px
   bottom 0
   width 38.5vw
-  background-color rgba(0,0,0,0.2)
+  background-color rgba(0,0,0,0)
   min-height 600px
-  z-index -1
+  z-index 111
+  // z-index -1
+  padding 20px
+  margin 0
+  box-sizing border-box
+  transition 150ms ease-in
+  animation-name fadeIn
+  animation-duration 500ms
+  animation-fill-mode both
 
   @media (max-width: 1400px)
     width 34.35vw
@@ -17,3 +25,97 @@
     top 82px
     width 70vw
     display none
+
+  .add-list
+    flex 0 0 auto
+    padding 0
+    margin 0
+    position relative
+
+    input
+      margin 0
+      background-color rgba(0,0,0,0.2)
+      padding 7px 15px
+      color #fff
+      box-sizing border-box
+      min-width 100%
+      max-width 100%
+      font-size 1em
+      border-radius 30px
+      border none
+      outline none
+
+    button.submitList
+      background-color transparent
+      color #ddd
+      border none
+      position absolute
+      right -10px
+      top 50%
+      transform translate(-50%,-50%)
+      outline none
+
+      &:hover
+        cursor pointer
+
+      span
+        margin-left 5px
+
+  .mobile-menu
+    display none
+
+
+@keyframes fadeIn
+  0%
+    opacity 0
+    transform translate(-50vw)
+
+  100%
+    opacity 1
+    transform translate(0)
+
+
+
+@keyframes fadeOut
+  0%
+    opacity 1
+    transform translate(0)
+
+  100%
+    opacity 0
+    transform translate(-50vw)
+
+.view-nav.hidden
+  animation-name fadeOut
+  animation-duration 500ms
+  animation-fill-mode both
+
+.view-nav.shrink
+  animation-name fadeIn
+  animation-duration 1500ms
+  animation-fill-mode both
+  z-index 111
+  width 80px
+  margin-left -25px
+  background-color color2
+
+  .add-list
+    margin 0
+    padding 0
+
+    input
+      display none
+
+    button
+      color #fff
+      font-size 20px
+      padding 0
+      margin 0
+
+      span
+        display none
+
+
+
+.view-nav.bg
+  background-color color2

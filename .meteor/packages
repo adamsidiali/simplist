@@ -16,3 +16,11 @@ service-configuration
 hammer:hammer
 chriswessels:hammer
 hybrid:dialogs
+ovcharik:alertify
+kevohagan:sweetalert
+mrt:jquery-mousewheel
+appcache
+fastclick
+mobile-status-bar
+ground:db
+swiper:swiper
