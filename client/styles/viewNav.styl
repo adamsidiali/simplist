@@ -20,8 +20,10 @@
 
 
   @media (max-width: 600px)
-    top 79px
+    top 0px
+    z-index 99999
     width 70vw
+    padding 20px 10px
 
 
   .add-list
@@ -93,7 +95,7 @@
           padding 20px
           font-size 1.2em
           font-weight 700
-          background-color color5
+          background-color rgba(0,0,0,0.2)
           color #111
           text-decoration none
           transition 200ms ease-in
@@ -135,9 +137,19 @@
 
 .view-nav.mobile
   animation none
-  background-color #333
+  background-color #ddd
   opacity 1
   transform translate(-100%)
+
+.view-nav-mobile-backdrop
+  position fixed
+  top 0
+  left 0
+  right 0
+  bottom 0
+  z-index 99
+  display none
+  background-color rgba(0,0,0,0.5)
 
 .view-nav.mobile.active
   transform translate(0)

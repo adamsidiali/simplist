@@ -9,13 +9,17 @@
   align-items stretch
   justify-content flex-start
 
+  @media (max-width: 600px)
+    padding 0 10px
+
   .spacer
     flex 1
 
   .toggle-menu
-    flex 0 0 auto
-    margin auto
-    margin-right 20px
+    flex 1
+    min-width 100%
+    max-width 100%
+    margin auto 0
     padding 10px 0
     display none
 
@@ -24,13 +28,13 @@
 
     ul
       list-style none
-      width 100vw
+      width 100%
       display flex
       justify-content space-between
 
       li
-        flex 0 0 1
-        margin-right 40px
+        flex 0 0 auto
+        margin-right 0px
         color #fff
         font-weight 300
         text-transform uppercase

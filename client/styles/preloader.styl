@@ -1,16 +1,22 @@
 .preloader
-  background-color rgba(0,0,0,0.9)
+  background-color #efefef
+  opacity 1
   color #ddd
   position fixed
   top 89px
-  left 0
+  left 25vw
   right 0
   bottom 0
   display none
-  z-index 9999
+  z-index 999
+
+  @media (max-width: 1400px)
+    left 33.33vw
 
   @media (max-width: 600px)
     top 79px
+    left 0
+    background-color #111
 
   .fa
     position absolute

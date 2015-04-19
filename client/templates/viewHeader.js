@@ -15,7 +15,8 @@ Template.viewHeader.events({
   },
 
   "click .mobile-menu-toggle": function (e,t) {
-    $(".view-nav").toggleClass("active");
+    $(".view-nav").addClass("active");
+    $(".view-nav-mobile-backdrop").fadeIn(100);
   },
 
   "click .header-add": function () {

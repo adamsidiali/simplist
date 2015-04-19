@@ -42,7 +42,7 @@ allTags = [];
 Template.viewNav.helpers({
 
   tags: function() {
-    return Tags.find({'lists.0': {$exists: true}});
+    return Tags.find({'owner': Meteor.user().username, 'lists.0': {$exists: true}});
   }
 
 
@@ -85,14 +85,22 @@ Template.viewNav.events({
 
     if ($(".view-nav").hasClass("mobile")) {
       $(".view-nav").removeClass("active");
+      $(".view-nav-mobile-backdrop").fadeOut(100);
     }
 
-    $(".preloader").fadeIn(200);
+    $(".preloader").show();
     setTimeout(function(){
       $(".preloader").fadeOut(200);
-    },500);
+    },50);
 
 
+  },
+
+  "click .view-nav-mobile-backdrop": function (e,t) {
+    if ($(".view-nav").hasClass("mobile")) {
+      $(".view-nav").removeClass("active");
+      $(".view-nav-mobile-backdrop").fadeOut(100);
+    }
   }
 
 });

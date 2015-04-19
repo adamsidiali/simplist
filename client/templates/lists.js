@@ -47,6 +47,7 @@ Template.lists.helpers({
           token: '',
           collection: Tags,
           field: "name",
+          filter: {"owner": Meteor.user().username},
           template: Template.tagAutoList,
           noMatchTemplate: Template.noTagMatch
         }
@@ -100,7 +101,7 @@ Template.lists.events({
   "click .remove-tag": function (e,t) {
 
     var listId = $(e.target).attr("data-attached-list");
-    Tags.update({_id: this._id}, {$pull: {lists: listId }});
+    Tags.update({_id: this._id}, {$pull: {lists: listId}});
 
   },
 
@@ -158,7 +159,7 @@ Template.lists.events({
 
   "focus .edit-item": function (e,t) {
     var wrap = $(event.target).parents(".list").children(".list-items-wrap");
-    wrap.scrollTop($(event.target).scrollTop());
+    wrap.scrollTo($(event.target));
   },
 
   "submit .edit-item": function (e,t) {
