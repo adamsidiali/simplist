@@ -1,10 +1,24 @@
+Template.viewHeader.rendered = function () {
+
+  if ($(window).width() < 600) {
+    $(".header-menu").addClass("mobile-menu-toggle");
+  }
+
+};
+
+
 Template.viewHeader.events({
 
-  "click .toggle-tabs": function () {
+
+  "click .header-menu": function () {
     $(".lists-wrap").animate({ "scrollLeft": 0});
   },
 
-  "click .fa-plus": function () {
+  "click .mobile-menu-toggle": function (e,t) {
+    $(".view-nav").toggleClass("active");
+  },
+
+  "click .header-add": function () {
 
 
     swal({

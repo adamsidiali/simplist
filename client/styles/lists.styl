@@ -8,6 +8,10 @@
   align-self stretch
   overflow hidden
   overflow-x visible
+  background-color brand-color
+  //background url('/img/family-beach-alt.jpg') no-repeat center center scroll
+  //background-size cover
+
 
   @media (max-width: 600px)
     overflow-x hidden
@@ -19,71 +23,47 @@
     box-sizing border-box
     padding 10px
     margin 0
-    margin-bottom 20px
-    border 5px solid color2
-    max-width 23vw
-    min-width 23vw
+    border 0
+    border-right 1px solid rgba(0,0,0,0.2)
+    max-width 25vw
+    min-width 25vw
     display flex
     flex-direction column
     user-select none
-    background-color #efefef
+    background-color transparent
 
     &:first-of-type
-      margin-left 38.5vw
-      box-shadow -11.5vw 11.5vw 8.5vw rgba(0,0,0,0.15)
-
-    &:last-of-type
-      box-shadow 11.5vw 11.5vw 8.5vw rgba(0,0,0,0.15)
-
-    &:last-of-type:after
-      content " "
-      width 25vw
-      height 1px
-
+      margin-left 25vw
 
 
     @media (max-width: 1400px)
-      max-width 31.33vw
-      min-width 31.33vw
+      max-width 33.33vw
+      min-width 33.33vw
 
       &:first-of-type
-        margin-left 34.35vw
+        margin-left 33.33vw
 
-      &:last-of-type:after
-        content " "
-        width 33.33vw
-        height 1px
 
     @media (max-width: 900px)
-      max-width 46vw
-      min-width 46vw
-
-      &:first-of-type
-        margin-left 27vw
-
-      &:last-of-type:after
-        content " "
-        width 48vw
-        height 1px
+      max-width 50vw
+      min-width 50vw
 
     @media (max-width: 600px)
-      max-width 93vw
-      min-width 93vw
+      max-width 100%
+      min-width 100%
+      margin-right 10px
 
       &:first-of-type
-        margin-left 3.5vw
+        margin-left 0px
+        margin-right 0px
 
-      &:last-of-type:after
-        content " "
-        width 93.5vw
-        height 1px
+
 
     .list-header
       position relative
-      height auto
       display flex
       flex-wrap wrap
-      padding 10px
+      padding 10px 0
       justify-content space-between
 
       .bar
@@ -94,8 +74,7 @@
 
         .toggle-list-menu
           color #111
-          margin 0
-          margin-left 10px
+          margin 0 10px
           line-height 24px
           flex 0 0 1
 
@@ -103,35 +82,99 @@
             cursor pointer
 
       .list-menu
-        z-index 999
-        list-style none
-        padding 0
-        padding-bottom 10px
-        margin 0
-        margin-top 10px
-        background-color #efefef
-        width 100%
         display none
+        width 100%
+        margin-top 10px
+        background-color #fff
+        z-index 999
 
-        li
-          background-color color3
-          padding 10px
-          color #fff
-          margin-bottom 5px
-          transition 100ms ease-in
+        .manage-list
+          list-style none
+          padding 5px
+          box-sizing border-box
+          margin 0
+          margin-bottom 10px
+          background-color transparent
+          width 100%
 
-          &:hover
+          display flex
+          flex-direction row
+          flex-wrap wrap
+
+          li
+            flex 0 0 auto
+            width 33.33%
+            text-align center
+            background-color brand-color
+            padding 5px
+            padding-bottom 10px
+            box-sizing border-box
+            color #111
+            margin 5px
+            transition 100ms ease-in
+
+            .fa
+              display block
+              width 100%
+              padding 10px 0
+              margin 0
+              text-align center
+
+
+            &:hover
+              background-color color5
+              cursor pointer
+              transition 100ms ease-in
+
+            &:hover .fa
+              padding-right 15px
+              transition 100ms ease-in
+
+            .fa
+              padding-right 5px
+              transition 100ms ease-in
+
+        .add-tag
+          margin 0
+          padding 0 5px
+          width 100%
+          box-sizing border-box
+
+          input
+            outline none
+            border none
+            box-shadow none
+            width 100%
+            box-sizing border-box
+            padding 10px
+            font-size 1em
+
+        .list-tags
+          list-style none
+          margin 0 5px
+          margin-top -15px
+          background-color transparent
+          padding 0px
+          display flex
+
+          li
+            padding 10px
+            flex 0 0 auto
+            margin 5px
+            display inline-block
             background-color color5
-            cursor pointer
-            transition 100ms ease-in
 
-          &:hover .fa
-            padding-right 15px
-            transition 100ms ease-in
+            .fa-times
+              opacity 0.4
+              transition 200ms ease-in
 
-          .fa
-            padding-right 5px
-            transition 100ms ease-in
+              &:hover
+                cursor pointer
+                opacity 1
+                transition 200ms ease-in
+
+            .fa-tag
+              margin 0 5px
 
 
 
@@ -139,7 +182,7 @@
       overflow scroll
       overflow-x hidden
       appearance none
-      padding 0 10px
+      padding 0px
       margin-top 10px
       opacity 1
       transition 200ms ease-in
@@ -147,6 +190,7 @@
       .list-items
         list-style none
         overflow visible
+        transition 100ms ease-in
 
         .item
           background-color #fff
@@ -224,12 +268,18 @@
 
 
     .list-items-wrap.hidden
-      opacity 0.5
+      overflow hidden
       pointer-events none
+
+      .list-items
+        opacity 0.4
+        transition 100ms ease-in
 
   .add-list-wrap
     border none
     padding 20px
+
+
 
 
 .lists-wrap.wide

@@ -8,10 +8,15 @@ Template.viewNav.rendered = function () {
       menuToggle();
     });
 
+    if ($(window).width() < 600) {
+      $(".view-nav").addClass("mobile");
+    }
+
 };
 
 
 var menuToggle = function () {
+
   if ($(".lists-wrap").scrollLeft() == 0 ) {
     $(".view-nav").removeClass("hidden");
 
@@ -28,7 +33,20 @@ var menuToggle = function () {
     }
   //  $(".view-nav").removeClass("shrink");
   }
+
 };
+
+
+allTags = [];
+
+Template.viewNav.helpers({
+
+  tags: function() {
+    return Tags.find({'lists.0': {$exists: true}});
+  }
+
+
+});
 
 Template.viewNav.events({
 
@@ -60,6 +78,20 @@ Template.viewNav.events({
     FocusFirstListInput();
 
     return false;
+
+  },
+
+  "click .tags-list-link": function (e,t) {
+
+    if ($(".view-nav").hasClass("mobile")) {
+      $(".view-nav").removeClass("active");
+    }
+
+    $(".preloader").fadeIn(200);
+    setTimeout(function(){
+      $(".preloader").fadeOut(200);
+    },500);
+
 
   }
 

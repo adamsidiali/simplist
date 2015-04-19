@@ -1,12 +1,12 @@
 .view-nav
   position absolute
-  top 98px
+  top 89px
   bottom 0
-  width 38.5vw
-  background-color rgba(0,0,0,0)
+  width 25vw
+  background-color rgba(0,0,0,0.1)
   min-height 600px
   z-index 111
-  // z-index -1
+  // z-index 999
   padding 20px
   margin 0
   box-sizing border-box
@@ -16,27 +16,29 @@
   animation-fill-mode both
 
   @media (max-width: 1400px)
-    width 34.35vw
+    width 33.33vw
 
-  @media (max-width: 900px)
-    width 50vw
 
   @media (max-width: 600px)
-    top 82px
+    top 79px
     width 70vw
-    display none
+
 
   .add-list
     flex 0 0 auto
     padding 0
     margin 0
+    margin-bottom 20px
     position relative
+
+    @media (max-width:600px)
+      display none
 
     input
       margin 0
-      background-color rgba(0,0,0,0.2)
+      background-color #fff
       padding 7px 15px
-      color #fff
+      color #000
       box-sizing border-box
       min-width 100%
       max-width 100%
@@ -47,7 +49,7 @@
 
     button.submitList
       background-color transparent
-      color #ddd
+      color #111
       border none
       position absolute
       right -10px
@@ -64,11 +66,52 @@
   .mobile-menu
     display none
 
+  .desktop-menu
+    .tags-list-title
+      color #111
+      margin 0
+      padding 0
+      margin-top 20px
+      margin-bottom 0
+
+      @media (max-width: 600px)
+        color #ddd
+        margin-top 0
+
+    .tags-list
+      list-style none
+      margin 10px 0
+      padding 0
+
+      li
+        margin-bottom 10px
+        padding 0px
+
+        a
+          display block
+          box-sizing border-box
+          padding 20px
+          font-size 1.2em
+          font-weight 700
+          background-color color5
+          color #111
+          text-decoration none
+          transition 200ms ease-in
+
+          .fa
+            margin-right 5px
+
+          &:hover
+            transition 200ms ease-in
+            background-color rgba(0,0,0,0.8)
+            padding-left 40px
+            color #fff
+
 
 @keyframes fadeIn
   0%
     opacity 0
-    transform translate(-50vw)
+    transform translate(-100%)
 
   100%
     opacity 1
@@ -90,30 +133,14 @@
   animation-duration 500ms
   animation-fill-mode both
 
-.view-nav.shrink
-  animation-name fadeIn
-  animation-duration 1500ms
-  animation-fill-mode both
-  z-index 111
-  width 80px
-  margin-left -25px
-  background-color color2
+.view-nav.mobile
+  animation none
+  background-color #333
+  opacity 1
+  transform translate(-100%)
 
-  .add-list
-    margin 0
-    padding 0
-
-    input
-      display none
-
-    button
-      color #fff
-      font-size 20px
-      padding 0
-      margin 0
-
-      span
-        display none
+.view-nav.mobile.active
+  transform translate(0)
 
 
 

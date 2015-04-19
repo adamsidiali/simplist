@@ -20,6 +20,13 @@ Template.addItemForm.events({
 
     return false;
 
+  },
+
+  "focus .add-item": function () {
+
+    var wrap = $(event.target).parents(".list").children(".list-items-wrap");
+    wrap.scrollTop(wrap.prop("scrollHeight"));
+
   }
 
 });

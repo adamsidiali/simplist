@@ -1,7 +1,7 @@
 .view-header
   padding 0px 20px
   min-height 50px
-  background-color color2
+  background-color #111
   flex 0 0 auto
   margin 0
   position relative
@@ -24,10 +24,22 @@
 
     ul
       list-style none
+      width 100vw
+      display flex
+      justify-content space-between
 
       li
-        display inline
-        margin-right 20px
+        flex 0 0 1
+        margin-right 40px
+        color #fff
+        font-weight 300
+        text-transform uppercase
+
+        &:hover
+          cursor pointer
+
+        i
+          margin-right 5px
 
     @media (max-width: 600px)
       display block
@@ -41,4 +53,5 @@
     margin 0
     padding 0
     color #fff
-    font-weight 100
+    font-size 28px
+    font-weight 700
