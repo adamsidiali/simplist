@@ -22,21 +22,21 @@ Template.lists.helpers({
     if (currentTagSlug == "") {
       Session.set("currentTagName", "All Lists");
 
-      return Lists.find({owner:Meteor.user().username}, {sort: {createdAt: -1}});
+      return Lists.find({owner:Meteor.userId()}, {sort: {createdAt: -1}});
     } else {
       var tag = Tags.findOne({"slug":currentTagSlug});
 
       Session.set("currentTagName", tag.name);
 
-      return Lists.find({owner:Meteor.user().username, _id: { $in: tag.lists }}, {sort: {createdAt: -1}});
+      return Lists.find({owner:Meteor.userId(), _id: { $in: tag.lists }}, {sort: {createdAt: -1}});
     }
 
   },
   items: function(listId) {
-    return Items.find({"owner":Meteor.user().username, "list_id": listId});
+    return Items.find({"owner":Meteor.userId(), "list_id": listId});
   },
   tags: function(listId) {
-    return Tags.find({"owner":Meteor.user().username, "lists": listId});
+    return Tags.find({"owner":Meteor.userId(), "lists": listId});
   },
   settings: function() {
     return {
@@ -47,7 +47,7 @@ Template.lists.helpers({
           token: '',
           collection: Tags,
           field: "name",
-          filter: {"owner": Meteor.user().username},
+          filter: {"owner": Meteor.userId()},
           template: Template.tagAutoList,
           noMatchTemplate: Template.noTagMatch
         }
@@ -110,6 +110,8 @@ Template.lists.events({
     $(e.target).parents(".list-menu").slideUp(100);
     $(e.target).parents(".list").children(".list-items-wrap").removeClass("hidden");
     $(e.target).parents(".list").children(".add-item").removeClass("hidden");
+    $(e.target).parents(".list-header").children(".bar").children(".toggle-list-menu").toggleClass("fa-caret-down");
+    $(e.target).parents(".list-header").children(".bar").children(".toggle-list-menu").toggleClass("fa-caret-up");
 
     var list_id = this._id;
     var title = this.title;
@@ -182,6 +184,8 @@ Template.lists.events({
     $(e.target).parents(".list-menu").slideUp(100);
     $(e.target).parents(".list").children(".list-items-wrap").removeClass("hidden");
     $(e.target).parents(".list").children(".add-item").removeClass("hidden");
+    $(e.target).parents(".list-header").children(".bar").children(".toggle-list-menu").toggleClass("fa-caret-down");
+    $(e.target).parents(".list-header").children(".bar").children(".toggle-list-menu").toggleClass("fa-caret-up");
 
 
     var id = this._id;
@@ -195,6 +199,9 @@ Template.lists.events({
       confirmButtonText: "Yes, delete it",
       closeOnConfirm: false
     }, function () {
+
+      Meteor.call("removeListFromTags", id);
+
       Lists.remove(id);
       Meteor.call("removeItems", id);
       console.log("deleted");

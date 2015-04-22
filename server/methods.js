@@ -23,7 +23,7 @@ Meteor.methods({
 
     if (Tags.find({"slug": slug}).count() === 0) {
       Tags.insert({
-        "owner": Meteor.user().username,
+        "owner": Meteor.userId(),
         "name": tag,
         "slug": slug,
         "lists": [listId],
@@ -36,6 +36,10 @@ Meteor.methods({
     }
 
 
+  },
+
+  removeListFromTags: function (listId) {
+    Tags.update({"lists": listId}, {$pull: {"lists": listId}});
   }
 
 });

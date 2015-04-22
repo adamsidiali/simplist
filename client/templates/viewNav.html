@@ -11,6 +11,9 @@
     </div>
 
     <div class="desktop-menu">
+      <div class="login-interface">
+        {{> loginButtons}}
+      </div>
 
       <form class="add-list" role="form">
         <input type="text" name="title" value="" placeholder="type a new list name..." autocomplete="off" />
@@ -19,8 +22,8 @@
 
       <!-- <h3 class="tags-list-title">My Tags</h3> -->
       <ul class="tags-list">
-        <li><a href="/lists/all" class="tags-list-link">All Lists</a></li>
-        {{#each tags}}
+        <li><a href="/lists/all" class="tags-list-link"><i class="fa fa-home"></i> All Lists</a></li>
+        {{#each activeTags}}
         <li><a href="/lists/{{slug}}" class="tags-list-link"><i class="fa fa-tag"></i> {{name}}</a></li>
         {{/each}}
       </ul>

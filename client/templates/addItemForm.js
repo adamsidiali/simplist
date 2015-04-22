@@ -7,7 +7,7 @@ Template.addItemForm.events({
 
     Items.insert({
       "list_id": list_id,
-      "owner":  Meteor.user().username,
+      "owner":  Meteor.userId(),
       "item": item
     }, function(err, id) {
       console.log(id);

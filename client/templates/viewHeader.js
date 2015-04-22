@@ -2,6 +2,10 @@ Template.viewHeader.rendered = function () {
 
   if ($(window).width() < 600) {
     $(".header-menu").addClass("mobile-menu-toggle");
+  } else {
+    $(".header-menu").addClass("hide-menu");
+    $(".header-menu .fa").removeClass("fa-bars");
+    $(".header-menu .fa").addClass("fa-caret-right");
   }
 
 };
@@ -10,7 +14,14 @@ Template.viewHeader.rendered = function () {
 Template.viewHeader.events({
 
 
-  "click .header-menu": function () {
+  "click .hide-menu": function () {
+
+    var menuscroll = $(document).width()/3;
+
+    $(".lists-wrap").animate({ "scrollLeft": menuscroll});
+  },
+
+  "click .show-menu": function () {
     $(".lists-wrap").animate({ "scrollLeft": 0});
   },
 
@@ -42,7 +53,7 @@ Template.viewHeader.events({
         var list_id; // to attach to the item obj created on Lists.insert success
 
         Lists.insert({
-          "owner": Meteor.user().username,
+          "owner": Meteor.userId(),
           "title": title,
           "createdAt": new Date()
         }, function(err, id) {

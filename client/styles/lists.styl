@@ -24,13 +24,15 @@
     padding 10px 20px
     margin 0
     border 0
-    border-right 1px solid rgba(0,0,0,0.2)
+    //border-right 1px solid rgba(0,0,0,0.2)
     max-width 25vw
     min-width 25vw
     display flex
     flex-direction column
     user-select none
     background-color transparent
+    &:nth-child(odd)
+       background-color rgba(0,0,0,0.04)
 
     &:first-of-type
       margin-left 25vw
@@ -65,6 +67,7 @@
       padding 0
       margin 10px 0
       justify-content space-between
+      flex 0 0 auto
 
       .bar
         flex 0 0 auto
@@ -187,7 +190,7 @@
       margin-top 10px
       opacity 1
       transition 200ms ease-in
-      flex 1
+      flex 0 0 1
 
       .list-items
         list-style none

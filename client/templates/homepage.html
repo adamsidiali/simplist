@@ -2,12 +2,23 @@
 
   {{#if currentUser}}
     <div class="home signed-in">
+
+
+
       <a href="/lists/all">Go to your lists.</a>
+      <br><br>
+
+      {{> loginButtons}}
+
+
     </div>
   {{else}}
     <div class="home sign-in">
-      Sign in to view your lists.
+
+      {{> loginButtons}} &nbsp;to view your lists.
+
+
     </div>
   {{/if}}
-  
+
 </template>

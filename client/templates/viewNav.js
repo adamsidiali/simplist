@@ -4,10 +4,6 @@ Template.viewNav.rendered = function () {
       menuToggle();
     });
 
-    $("window").resize(function () {
-      menuToggle();
-    });
-
     if ($(window).width() < 600) {
       $(".view-nav").addClass("mobile");
     }
@@ -21,15 +17,24 @@ var menuToggle = function () {
     $(".view-nav").removeClass("hidden");
 
     if ($(window).width() > 600) {
-      $(".toggle-menu").fadeOut(250);
+      $(".header-add").fadeOut(250);
+      $(".header-menu i").removeClass("fa-bars");
+      $(".header-menu i").addClass("fa-caret-right");
+      $(".header-menu").removeClass("show-menu");
+      $(".header-menu").addClass("hide-menu");
     }
   }
 
 
   if ($(".lists-wrap").scrollLeft() > 1) {
     $(".view-nav").addClass("hidden");
+
     if ($(window).width() > 600) {
-      $(".toggle-menu").fadeIn(250);
+      $(".header-add").fadeIn(250);
+      $(".header-menu i").addClass("fa-bars");
+      $(".header-menu i").removeClass("fa-caret-right");
+      $(".header-menu").addClass("show-menu");
+      $(".header-menu").removeClass("hide-menu");
     }
   //  $(".view-nav").removeClass("shrink");
   }
@@ -41,8 +46,8 @@ allTags = [];
 
 Template.viewNav.helpers({
 
-  tags: function() {
-    return Tags.find({'owner': Meteor.user().username, 'lists.0': {$exists: true}});
+  activeTags: function() {
+    return Tags.find({'owner': Meteor.userId(), 'lists.0': {$exists: true}});
   }
 
 
@@ -56,7 +61,7 @@ Template.viewNav.events({
     var list_id; // to attach to the item obj created on Lists.insert success
 
     Lists.insert({
-      "owner": Meteor.user().username,
+      "owner": Meteor.userId(),
       "title": title,
       "createdAt": new Date()
     }, function(err, id) {
@@ -65,7 +70,7 @@ Template.viewNav.events({
 
       /*Items.insert({
         "list_id": list_id,
-        "owner":  Meteor.user().username,
+        "owner":  Meteor.userId(),
         "item": "item 1",
       }, function(err, id) {
         console.log(id);
@@ -97,6 +102,18 @@ Template.viewNav.events({
   },
 
   "click .view-nav-mobile-backdrop": function (e,t) {
+    if ($(".view-nav").hasClass("mobile")) {
+      $(".view-nav").removeClass("active");
+      $(".view-nav-mobile-backdrop").fadeOut(100);
+    }
+  }
+
+});
+
+
+Template.viewNav.gestures({
+
+  "swipeleft .wrap": function (e,t) {
     if ($(".view-nav").hasClass("mobile")) {
       $(".view-nav").removeClass("active");
       $(".view-nav-mobile-backdrop").fadeOut(100);

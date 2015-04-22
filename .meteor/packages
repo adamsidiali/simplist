@@ -9,7 +9,6 @@ autopublish
 insecure
 stylus
 iron:router
-accounts-ui
 accounts-password
 fortawesome:fontawesome
 service-configuration
@@ -25,3 +24,7 @@ mobile-status-bar
 ground:db
 swiper:swiper
 mizzao:autocomplete
+accounts-base
+accounts-ui
+accounts-google
+accounts-facebook
