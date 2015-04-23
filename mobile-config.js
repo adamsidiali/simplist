@@ -1,14 +1,14 @@
 App.info({
   name: 'Simplist',
   description: 'Lists made simple.',
-  version: '0.0.1'
+  version: '0.2.2'
 });
 
 App.icons({
-  'android_ldpi': 'public/img/logo.png',
-  'android_mdpi': 'public/img/logo.png',
-  'android_hdpi': 'public/img/logo.png',
-  'android_xhdpi': 'public/img/logo.png'
+  'android_ldpi': 'private/assets/drawable-ldpi/ic_launcher.png',
+  'android_mdpi': 'private/assets/drawable-mdpi/ic_launcher.png',
+  'android_hdpi': 'private/assets/drawable-hdpi/ic_launcher.png',
+  'android_xhdpi': 'private/assets/drawable-xhdpi/ic_launcher.png'
 });
 
 App.setPreference('StatusBarOverlaysWebView', 'false');

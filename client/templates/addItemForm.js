@@ -11,12 +11,13 @@ Template.addItemForm.events({
       "item": item
     }, function(err, id) {
       console.log(id);
+
+      var wrap = $(event.target).parents(".list").children(".list-items-wrap");
+      wrap.scrollTop(wrap.prop("scrollHeight"));
+
     });
 
     event.target.item.value = "";
-
-    var wrap = $(event.target).parents(".list").children(".list-items-wrap");
-    wrap.scrollTop(wrap.prop("scrollHeight"));
 
     return false;
 
