@@ -22,7 +22,7 @@ Template.lists.helpers({
     if (currentTagSlug == "") {
       Session.set("currentTagName", "All Lists");
 
-      return Lists.find({owner:Meteor.userId()}, {sort: {createdAt: -1}});
+      return Lists.find({$or: [{owner:Meteor.userId()},{sharedWith: Meteor.userId()}]}, {sort: {createdAt: -1}});
     } else {
       var tag = Tags.findOne({"slug":currentTagSlug});
 
@@ -33,7 +33,17 @@ Template.lists.helpers({
 
   },
   items: function(listId) {
-    return Items.find({"owner":Meteor.userId(), "list_id": listId});
+
+    var lists = Lists.find({$or: [{owner:Meteor.userId()},{sharedWith: Meteor.userId()}]}, {sort: {createdAt: -1}}).fetch();
+    var all = [];
+    var items = Items.find({list_id: listId}).fetch();
+
+    console.log(lists);
+    console.log(items);
+
+    
+
+    return items;
   },
   tags: function(listId) {
     return Tags.find({"owner":Meteor.userId(), "lists": listId});
