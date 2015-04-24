@@ -71,10 +71,7 @@ Template.lists.helpers({
 
 });
 
-var toggleListNav = function (e) {
-  // var toggle = $(e.target);
-  var header = $(e.target);
-  var list = header.parent();
+var toggleListNav = function (list, header) {
 
   header.children(".list-menu").slideToggle(100);
   header.children(".bar").children(".fa").toggleClass("fa-caret-down");
@@ -87,8 +84,34 @@ var toggleListNav = function (e) {
 
 Template.lists.events({
 
-  "click .list-header": function (event, template) {
-    toggleListNav(event);
+  "click .list-header": function (e, t) {
+    var header = $(e.target);
+    var list = header.parent();
+
+    toggleListNav(list, header);
+  },
+
+  "click .list": function (e, t) {
+
+    var list = $(e.target);
+    var header = list.children(".list-header");
+
+    if (list.children(".list-items-wrap").hasClass("hidden")) {
+      toggleListNav(list, header);
+    }
+
+  },
+
+  "click .list-items-wrap.hidden": function (e, t) {
+
+    var items = $(e.target);
+    var list = items.parent();
+    var header = list.children(".list-header");
+
+    if (list.children(".list-items-wrap").hasClass("hidden")) {
+      toggleListNav(list, header);
+    }
+
   },
 
   "submit .add-tag": function (e,t) {

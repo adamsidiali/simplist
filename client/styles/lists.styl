@@ -74,6 +74,11 @@
       transition 200ms ease-in
       color #000
 
+      @media (max-width: 600px)
+        margin -10px
+        margin-bottom 0
+        padding 10px
+
       &:hover
         transition 100ms ease-in
         background-color rgba(0,0,0,0.4)
@@ -297,7 +302,9 @@
 
     .list-items-wrap.hidden
       overflow hidden
-      pointer-events none
+
+      .list-items
+        pointer-events none
 
       .list-items
         opacity 0.4
