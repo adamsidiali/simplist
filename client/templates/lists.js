@@ -6,6 +6,10 @@ Template.lists.rendered = function () {
 
   });
 
+  var el = document.getElementById('lists');
+  var sortable = Sortable.create(el);
+
+
 };
 
 
@@ -41,7 +45,7 @@ Template.lists.helpers({
     console.log(lists);
     console.log(items);
 
-    
+
 
     return items;
   },
@@ -50,7 +54,7 @@ Template.lists.helpers({
   },
   settings: function() {
     return {
-      position: "bottom",
+      position: "top",
       limit: 5,
       rules: [
         {

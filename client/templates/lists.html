@@ -20,9 +20,13 @@
           <div class="list-menu">
 
             <ul class="manage-list">
-              <li class="rename-list"><i class="fa fa-pencil fa-fw"></i> Rename List</li>
-              <li class="trash-list"><i class="fa fa-trash fa-fw"></i> Delete List</li>
+              <li class="rename-list"><i class="fa fa-pencil fa-fw"></i></li>
+              <li class="trash-list"><i class="fa fa-trash fa-fw"></i></li>
             </ul>
+
+            <form class="add-tag" role="form">
+                {{> inputAutocomplete settings=settings class="add-tag-input" name="tag" listId=_id placeholder="add a tag..."}}
+            </form>
 
             <ul class="list-tags">
               {{#each tags _id}}
@@ -30,9 +34,7 @@
               {{/each}}
             </ul>
 
-            <form class="add-tag" role="form">
-                {{> inputAutocomplete settings=settings class="add-tag-input" name="tag" listId=_id placeholder="add a tag..."}}
-            </form>
+
 
           </div>
 
@@ -69,8 +71,6 @@
     {{/each}}
 
   </div>
-{{else}}
-  {{> notSignedIn}}
 {{/if}}
 
 </template>

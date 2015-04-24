@@ -11,5 +11,12 @@ App.icons({
   'android_xhdpi': 'private/assets/drawable-xhdpi/ic_launcher.png'
 });
 
+App.launchScreens({
+  'android_hdpi_portrait': 'private/assets/portrait800.png',
+  'android_hdpi_landscape': 'private/assets/landscape800.png',
+  'android_xhdpi_portrait': 'private/assets/portrait1280.png',
+  'android_xhdpi_landscape': 'private/assets/landscape1280.png'
+});
+
 App.setPreference('StatusBarOverlaysWebView', 'false');
 App.setPreference('StatusBarBackgroundColor', '#35524A');
