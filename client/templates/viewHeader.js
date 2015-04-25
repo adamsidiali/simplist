@@ -4,8 +4,6 @@ Template.viewHeader.rendered = function () {
     $(".header-menu").addClass("mobile-menu-toggle");
   } else {
     $(".header-menu").addClass("hide-menu");
-    $(".header-menu .fa").removeClass("fa-bars");
-    $(".header-menu .fa").addClass("fa-caret-right");
   }
 
 };

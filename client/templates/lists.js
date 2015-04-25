@@ -154,8 +154,9 @@ Template.lists.events({
     var title = this.title;
 
     swal({
-      title: "Rename " + title,
+      title: "Rename " + title + " to:",
       type: "input",
+      inputPlaceholder: title,
       text: "",
       showCancelButton: true,
       closeOnConfirm: false,

@@ -1,7 +1,7 @@
 App.info({
-  name: 'Simplist',
+  name: 'Simplists',
   description: 'Lists made simple.',
-  version: '0.2.2'
+  version: '0.2.3'
 });
 
 App.icons({

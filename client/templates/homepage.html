@@ -2,15 +2,22 @@
 
   <div class="home sign-in">
 
-    {{> loginButtons align="right"}}
+      <img src="/img/logo.png" class="" />
 
-    <img src="/img/icon.png" class="logo-img">
+      <h2>Lists made simple.</h2>
 
-    <h2>Lists made simple.</h2>
 
-    {{#if currentUser}}
-      <meta http-equiv="refresh" content="0;lists/all">
-    {{/if}}
+      {{#if currentUser}}
+        <ul>
+          <li class="my-lists"><i class="fa fa-th-list fa-fw"></i> My Lists</li>
+          <li class="logout"><i class="fa fa-sign-out fa-fw"></i> Logout</li>
+        </ul>
+      {{else}}
+      <ul>
+        <li class="login-google"><i class="fa fa-google-plus fa-fw"></i> Login with Google</li>
+        <li class="login-facebook"><i class="fa fa-facebook fa-fw"></i> Login with Facebook</li>
+      </ul>
+      {{/if}}
 
 
   </div>

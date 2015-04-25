@@ -6,6 +6,7 @@ Template.addItemForm.events({
     var list_id = this._id;
 
     Items.insert({
+      "createdAt": new Date(),
       "list_id": list_id,
       "owner":  Meteor.userId(),
       "item": item

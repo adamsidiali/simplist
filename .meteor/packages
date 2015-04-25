@@ -29,3 +29,8 @@ accounts-ui
 accounts-google
 accounts-facebook
 rubaxa:sortable
+underscore
+http
+email
+meteorhacks:ssr
+meteorhacks:kadira

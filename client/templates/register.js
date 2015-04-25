@@ -16,13 +16,12 @@ Template.register.events({
     var password = t.find('#account-password').value;
 
 
-    if ( isValidPassword(userPassword) ) {
+    if ( isValidPassword(password) ) {
       Accounts.createUser({email: email, password : password}, function(err){
         if (err) {
-          // Inform the user that account creation failed
+          alert("failed to create user");
         } else {
-          // Success. Account has been created and the user
-          // has logged in successfully.
+          alert("created user");
         }
 
       });

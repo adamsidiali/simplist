@@ -21,6 +21,8 @@
 
             <ul class="manage-list">
               <li class="rename-list"><i class="fa fa-pencil fa-fw"></i></li>
+              <li class="share-list"><i class="fa fa-share-alt fa-fw"></i></li>
+              <li class="archive-list"><i class="fa fa-archive fa-fw"></i></li>
               <li class="trash-list"><i class="fa fa-trash fa-fw"></i></li>
             </ul>
 
@@ -71,6 +73,14 @@
     {{/each}}
 
   </div>
+
+{{else}}
+
+<div class="preloader" style="display: block; top: 0; left: 0;">
+  <i class="fa fa-circle-o-notch fa-lg fa-spin"></i>
+</div>
+
 {{/if}}
+
 
 </template>

@@ -4,7 +4,7 @@
   bottom 0
   width 25vw
   background-color #fff
-  min-height 600px
+  border-top 1px solid #ddd
   z-index 111
   // z-index 999
   padding 20px
@@ -33,7 +33,7 @@
     margin-bottom 20px
     position relative
     border 1px solid #ddd
-    padding 10px
+    padding 0px
 
     @media (max-width:600px)
       display none
@@ -41,14 +41,12 @@
     input
       margin 0
       background-color #fff
-      padding 5px
-      padding-left 10px
+      padding 10px
       color #000
       box-sizing border-box
       min-width 100%
       max-width 100%
       font-size 1em
-      border-radius 30px
       border none
       outline none
 
@@ -73,6 +71,7 @@
     display none
 
   .desktop-menu
+
     .tags-list-title
       color #111
       margin 0
@@ -99,10 +98,10 @@
         a
           display block
           box-sizing border-box
-          padding 20px
+          padding 10px
           font-size 1.2em
           font-weight 700
-          background-color #efefef
+          background-color rgba(0,0,0,0.1)
           color #111
           text-decoration none
           transition 200ms ease-in
@@ -111,10 +110,27 @@
             margin-right 5px
 
           &:hover
-            transition 200ms ease-in
-            background-color color5
-            padding-left 40px
+            transition 100ms ease-in
+            background-color rgba(0,0,0,0.8)
+            padding-left 20px
             color #fff
+
+
+    .logout
+      position absolute
+      bottom 20px
+      left 20px
+      right 20px
+      opacity 0.5
+      background-color rgba(0,0,0,0.1)
+      padding 10px
+      font-size 1.2em
+      transition 200ms ease-in
+
+      &:hover
+        transition 200ms ease-in
+        opacity 1
+        cursor pointer
 
 
 @keyframes fadeIn

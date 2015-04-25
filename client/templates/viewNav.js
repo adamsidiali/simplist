@@ -17,9 +17,9 @@ var menuToggle = function () {
     $(".view-nav").removeClass("hidden");
 
     if ($(window).width() > 600) {
-      $(".header-add").fadeOut(250);
-      $(".header-menu i").removeClass("fa-bars");
-      $(".header-menu i").addClass("fa-caret-right");
+      //$(".header-add").fadeOut(250);
+      //$(".header-menu i").removeClass("fa-bars");
+      $(".header-menu i").removeClass("fa-caret-right");
       $(".header-menu").removeClass("show-menu");
       $(".header-menu").addClass("hide-menu");
     }
@@ -30,9 +30,9 @@ var menuToggle = function () {
     $(".view-nav").addClass("hidden");
 
     if ($(window).width() > 600) {
-      $(".header-add").fadeIn(250);
-      $(".header-menu i").addClass("fa-bars");
-      $(".header-menu i").removeClass("fa-caret-right");
+      //$(".header-add").fadeIn(250);
+      // $(".header-menu i").addClass("fa-bars");
+      $(".header-menu i").addClass("fa-caret-right");
       $(".header-menu").addClass("show-menu");
       $(".header-menu").removeClass("hide-menu");
     }
@@ -63,6 +63,7 @@ Template.viewNav.events({
     Lists.insert({
       "owner": Meteor.userId(),
       "title": title,
+      "sharedWith": [],
       "createdAt": new Date()
     }, function(err, id) {
 
@@ -106,6 +107,18 @@ Template.viewNav.events({
       $(".view-nav").removeClass("active");
       $(".view-nav-mobile-backdrop").fadeOut(100);
     }
+  },
+
+  "click .logout": function (e,t) {
+
+    Meteor.logout( function (err) {
+      if (err) {
+        console.log(err);
+      } else {
+        Router.go("homepage");
+      }
+    });
+
   }
 
 });

@@ -11,9 +11,6 @@
     </div>
 
     <div class="desktop-menu">
-      <div class="login-interface">
-        {{> loginButtons}}
-      </div>
 
       <form class="add-list" role="form">
         <input type="text" name="title" value="" placeholder="type a new list name..." autocomplete="off" />
@@ -26,8 +23,13 @@
         {{#each activeTags}}
         <li><a href="/lists/{{slug}}" class="tags-list-link"><i class="fa fa-tag"></i> {{name}}</a></li>
         {{/each}}
+        <li class="spacer"> </li>
       </ul>
 
+
+      <div class="logout">
+        <i class="fa fa-sign-out fa-rotate-180 fa-fw"></i> Logout
+      </div>
 
     </div>
 
