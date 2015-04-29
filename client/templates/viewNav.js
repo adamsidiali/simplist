@@ -47,7 +47,7 @@ allTags = [];
 Template.viewNav.helpers({
 
   activeTags: function() {
-    return Tags.find({'owner': Meteor.userId(), 'lists.0': {$exists: true}});
+    return Tags.find({'owner': Meteor.userId(), 'lists.0': {$exists: true}}, {sort: {'name': 1}});
   }
 
 

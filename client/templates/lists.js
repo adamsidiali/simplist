@@ -6,8 +6,8 @@ Template.lists.rendered = function () {
 
   });
 
-  var el = document.getElementById('lists');
-  var sortable = Sortable.create(el);
+  // var el = document.getElementById('lists');
+  // var sortable = Sortable.create(el);
 
 
 };
@@ -40,7 +40,7 @@ Template.lists.helpers({
 
     var lists = Lists.find({$or: [{owner:Meteor.userId()},{sharedWith: Meteor.userId()}]}, {sort: {createdAt: -1}}).fetch();
     var all = [];
-    var items = Items.find({list_id: listId}).fetch();
+    var items = Items.find({"list_id": listId, "archived": false}).fetch();
 
     console.log(lists);
     console.log(items);
@@ -266,8 +266,9 @@ Template.lists.events({
 
   },
 
-  "click .trash-item": function (e,t) {
-    Items.remove(this._id);
+  "click .archive-item": function (e,t) {
+    Items.update({"_id": this._id}, {$set: {"archived": true}});
+    console.log("item archived");
   }
 
 });

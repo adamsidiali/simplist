@@ -9,7 +9,8 @@ Template.addItemForm.events({
       "createdAt": new Date(),
       "list_id": list_id,
       "owner":  Meteor.userId(),
-      "item": item
+      "item": item,
+      "archived": false,
     }, function(err, id) {
       console.log(id);
 
