@@ -209,11 +209,15 @@ Template.lists.events({
     var item = form.parent();
     var p = item.children("p");
 
-    Items.update(this._id, {$set: { "item": newItem }});
+    if (newItem == "") {
+      swal("Your item can't be blank!");
+    } else {
+      Items.update(this._id, {$set: { "item": newItem }});
 
-    form.hide();
-    p.show();
-
+      form.hide();
+      p.show();
+    }
+    
     return false;
   },
 

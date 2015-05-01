@@ -60,24 +60,29 @@ Template.viewNav.events({
     var title = event.target.title.value;
     var list_id; // to attach to the item obj created on Lists.insert success
 
-    Lists.insert({
-      "owner": Meteor.userId(),
-      "title": title,
-      "sharedWith": [],
-      "createdAt": new Date()
-    }, function(err, id) {
-
-      list_id = id; // assign the returned _id of the newly created list obj
-
-      /*Items.insert({
-        "list_id": list_id,
-        "owner":  Meteor.userId(),
-        "item": "item 1",
+    if ( title == "" ) {
+      swal("Your list name can't be blank!");
+    } else {
+      Lists.insert({
+        "owner": Meteor.userId(),
+        "title": title,
+        "sharedWith": [],
+        "createdAt": new Date()
       }, function(err, id) {
-        console.log(id);
-      });*/
 
-    });
+        list_id = id; // assign the returned _id of the newly created list obj
+
+        /*Items.insert({
+          "list_id": list_id,
+          "owner":  Meteor.userId(),
+          "item": "item 1",
+        }, function(err, id) {
+          console.log(id);
+        });*/
+
+      });
+
+    }
 
     event.target.title.value = "";
 
